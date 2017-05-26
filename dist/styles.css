@@ -1,4 +1,133 @@
 body {
+  margin: 0;
+  font-family: Tahoma; }
+
+/* nav */
+#navBar {
+  background: #3c3c3c;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px #aedde4;
+  position: fixed;
+  border-style: solid;
+  width: 100%;
+  transition: top 0.2s ease-in-out; }
+
+#navBar h3 {
+  margin: 0 1% 0;
+  color: #d4c4c4;
+  font-weight: 200;
+  letter-spacing: 3px;
+  cursor: pointer; }
+
+#navBar nav {
+  list-style: none;
+  color: #d4c4c4;
+  margin: 0 1% 0;
+  display: flex;
+  width: 300px; }
+
+#navBar nav li {
+  padding: 0 10% 0;
+  display: inline;
+  width: 100%;
+  cursor: pointer;
+  width: 100%; }
+
+@media only screen and (max-width: 500px) {
+  #navBar nav {
+    display: none; } }
+
+scrolling-stats {
+  background: #23c523;
+  display: block;
+  width: 100%;
+  position: fixed;
+  transition: top 0.2s ease-in-out;
+  top: 55px; }
+
+scrolling-stats h3 {
   margin: 0; }
+
+.homeDiv {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 60px; }
+
+.priceBox {
+  background-color: black;
+  color: white;
+  width: 264px;
+  height: 400px;
+  padding: 1%;
+  margin-top: 2%; }
+
+p.usdPrice.ng-binding {
+  font-size: 2.4em;
+  margin: 0;
+  font-weight: 900; }
+
+p.changeRate.ng-binding {
+  margin: 0;
+  font-size: 1.7em; }
+
+.lander {
+  background-image: url("http://www.forexnewsnow.com/wp-content/uploads/2016/10/Bitcoin.jpg");
+  height: 250px;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 4%; }
+
+.chartContainer {
+  margin-top: 2%;
+  width: 900px;
+  height: 425px;
+  background: grey; }
+
+.currency-buttons button {
+  border-radius: 0;
+  border: 0;
+  padding: 1%;
+  background-color: rgba(188, 255, 215, 0.55); }
+
+.currency-buttons {
+  padding: 1%; }
+
+.chartContainer body {
+  font: 12px Arial; }
+
+.chartContainer path {
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none; }
+
+.chartContainer .axis path,
+.chartContainer .axis line {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1;
+  shape-rendering: crispEdges; }
+
+.insightDiv {
+  margin: 0 5% 0;
+  padding-top: 60px; }
+
+.insightRow {
+  display: flex;
+  justify-content: space-around; }
+
+.coinDiv {
+  margin: 0 5% 0;
+  padding-top: 60px; }
+
+.infoDiv {
+  margin: 0 5% 0;
+  padding-top: 60px; }
 
 /*# sourceMappingURL=maps/styles.css.map */

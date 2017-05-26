@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-chart.js": "^1.1.1",
     "babel-preset-es2015": "^6.24.1",
     "cachebust": "^2.3.0",
+    "chart.js": "^2.6.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
