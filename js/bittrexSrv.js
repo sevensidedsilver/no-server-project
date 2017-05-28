@@ -1,6 +1,6 @@
 angular.module('app').service('mainSrv', function($http){
 
-    this.getCurrentPrice = function (){
+    this.getBitcoinCurrentPrice = function (){
       return $http({
       method: 'GET',
       url: 'http://api.coindesk.com/v1/bpi/currentprice/CNY.json'
@@ -10,6 +10,8 @@ angular.module('app').service('mainSrv', function($http){
 
         });
 }
+
+
 
 // get yesterday's price
     this.getPriceYesterday = function (){
@@ -29,6 +31,7 @@ angular.module('app').service('mainSrv', function($http){
         });
 }
 
+
   this.getMonthlyBitcoinData = function (){
     return $http({
     method: 'GET',
@@ -39,13 +42,6 @@ angular.module('app').service('mainSrv', function($http){
 
       });
 }
-// google trends API fetches
-
-
-
-
-
-
 
 
 
