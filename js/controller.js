@@ -64,6 +64,7 @@ angular.module('app').controller('mainCtrl', function($scope, $window, mainSrv){
     $scope.displayPrice = "$ " + $scope.price.substring(0, $scope.price.length-2)
     $scope.coin = "Bitcoin"
     $scope.changeRate = $scope.BTCrate
+    $mainSrv.animatePriceBox();
     console.log("BTC")
   }
   $scope.changeToLTC = function(){

@@ -157,6 +157,7 @@ angular.module('app').controller('mainCtrl', function ($scope, $window, mainSrv)
     $scope.displayPrice = "$ " + $scope.price.substring(0, $scope.price.length - 2);
     $scope.coin = "Bitcoin";
     $scope.changeRate = $scope.BTCrate;
+    $mainSrv.animatePriceBox();
     console.log("BTC");
   };
   $scope.changeToLTC = function () {
@@ -290,6 +291,13 @@ angular.module('app').service('mainSrv', function ($http) {
       url: 'https://min-api.cryptocompare.com/data/pricehistorical?fsym=ETH&tsyms=USD&ts=' + timeStamp
     }).then(function (response) {
       return response;
+    });
+  };
+
+  // animate
+  this.animatePriceBox = function () {
+    $animate.addClass(p, 'shake').then(function () {
+      p.removeClass('shake');
     });
   };
 });
