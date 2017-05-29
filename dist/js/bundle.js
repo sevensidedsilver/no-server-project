@@ -293,13 +293,6 @@ angular.module('app').service('mainSrv', function ($http) {
       return response;
     });
   };
-
-  // animate
-  this.animatePriceBox = function () {
-    $animate.addClass(p, 'shake').then(function () {
-      p.removeClass('shake');
-    });
-  };
 });
 'use strict';
 
