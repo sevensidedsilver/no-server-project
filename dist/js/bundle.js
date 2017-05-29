@@ -4,6 +4,9 @@ angular.module('app', ['ui.router']).config(function ($stateProvider, $urlRouter
     $stateProvider.state('home', {
         url: '/',
         templateUrl: "../templates/home.html"
+    }).state('litehome', {
+        url: '/ltc',
+        templateUrl: "../templates/homeltc.html"
     }).state('insight', {
         url: '/insight',
         templateUrl: "../templates/insight.html"
@@ -101,11 +104,22 @@ angular.module('app').controller('chartCtrl', function ($scope, mainSrv) {
 
 angular.module('app').controller('mainCtrl', function ($scope, $window, mainSrv) {
 
+  // bitcoin functions
   mainSrv.getCurrentPrice().then(function (response) {
     $scope.price = response.data.bpi.USD.rate;
-    $scope.price = $scope.price.substring(0, $scope.price.length - 2);
+    $scope.displayPrice = "$ " + $scope.price.substring(0, $scope.price.length - 2);
 
     $scope.priceNumber = $scope.price.replace(/\,/g, '');
+
+    //get litecoin value
+    //litecoin functions
+    // gets the current litecoin price
+    mainSrv.getLTCvalue().then(function (response) {
+      $scope.currentLTC = response.data.data.markets.btce.value * $scope.priceNumber;
+      console.log($scope.currentLTC);
+
+      //changerate for LTC needs to go here
+    });
 
     mainSrv.getPriceYesterday().then(function (response) {
       $scope.priceYesterday = response;
@@ -118,8 +132,16 @@ angular.module('app').controller('mainCtrl', function ($scope, $window, mainSrv)
     $scope.monthdata = response.data.bpi;
   });
 
-  // trends
-  mainSrv.getBitcoinSearchData();
+  //Ethereum
+  mainSrv.getETHprice().then(function (response) {
+    $scope.ETHprice = Object.values(response)[0];
+    console.log($scope.ETHprice);
+  });
+
+  //change currency
+  $scope.changeToBitcoin = mainSrv.changeToBitcoin;
+  $scope.changeToLTC = mainSrv.changeToLTC;
+  $scope.changeToETH = mainSrv.changeToETH;
 });
 "use strict";
 'use strict';
@@ -172,20 +194,55 @@ angular.module('app').service('mainSrv', function ($http) {
       return response;
     });
   };
-  // google trends API fetches
-  this.getBitcoinSearchData = function () {
+
+  //get litecoin values
+  //first get the current litecoin price
+  this.getLTCvalue = function () {
     return $http({
       method: 'GET',
-      url: 'http://www.google.com/trends/fetchComponent',
-      hl: 'en-US',
-      q: 'bitcoin',
-      cid: 'TIMESERIES_GRAPH_0',
-      export: '5',
-      w: '700px',
-      h: '400px'
+      url: 'http://ltc.blockr.io/api/v1/coin/info'
+    }).then(function (response) {
+      return response;
+    });
+  };
+
+  //the price 24 hours ago for the change rate
+  //use node module
+  this.getLTCyesterday = function () {
+    return $http({
+      method: 'GET',
+      url: 'https://www.investing.com/currencies/ltc-usd-historical-data'
     }).then(function (response) {
       console.log(response);
     });
+  };
+
+  //get the monthly values
+
+
+  // Ethereum!!
+  // get current value
+  this.getETHprice = function () {
+    return $http({
+      method: 'GET',
+      url: 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
+
+    }).then(function (response) {
+      return response.data;
+    });
+  };
+
+  // change currency
+  this.changeToBitcoin = function () {
+    console.log("BTC");
+  };
+
+  this.changeToLTC = function () {
+    console.log("LTC");
+  };
+
+  this.changeToETH = function () {
+    console.log("ETH");
   };
 });
 'use strict';

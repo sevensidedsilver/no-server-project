@@ -5,6 +5,14 @@ angular.module('app', ['ui.router'])
                 url:'/',
                 templateUrl: "../templates/home.html"
             })
+
+            .state('litehome',{
+                url:'/ltc',
+                templateUrl: "../templates/homeltc.html"
+            })
+
+
+
             .state('insight',{
                 url:'/insight',
                 templateUrl: "../templates/insight.html"

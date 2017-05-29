@@ -11,8 +11,9 @@
 
 
         <div class = "priceBox">
+
           <h3>Bitcoin</h3>
-          <p class=usdPrice>$ {{price}}</p>
+          <p class=usdPrice>{{displayPrice}}</p>
           <h2>24 Hour Rate</h2>
           <p class=changeRate>{{changeRate}} %</p>
 
@@ -33,9 +34,9 @@
     <div class="chartContainer">
       <div class="currency-buttons">
 
-        <button name="button">Bitcoin</button>
-        <button name="button">Litecoin</button>
-        <button name="button">Ethereum</button>
+        <button name="button" ng-click="changeToBitcoin()">Bitcoin</button>
+        <button name="button" ng-click="changeToLTC()">Litecoin</button>
+        <button name="button" ng-click="changeToETH()">Ethereum</button>
       </div>
 
       <monthchart></monthchart>
@@ -58,19 +59,19 @@
 
   <div class="homeLinks">
 
-    <div class="oneLink">
+    <div class="oneLink" ui-sref="info">
       <i class="fa fa-info fa-4x" aria-hidden="true"></i>
       <h2>Info</h2>
       <p>New to cryptocurrencies? Click here now for enough knowledge to impress the ladies later.</p>
     </div>
 
-    <div class="oneLink">
+    <div class="oneLink" ui-sref="insight">
       <i class="fa fa-line-chart fa-4x" aria-hidden="true"></i>
       <h2>Insight</h2>
       <p>Get an inside understanding of the patterns and techniques used by experienced investors.</p>
     </div>
 
-    <div class="oneLink">
+    <div class="oneLink" ui-sref="coins">
       <i class="fa fa-btc fa-4x" aria-hidden="true"></i>
       <h2>Coins</h2>
       <p>Altcoins quickly confuse new traders - learn about our favorite cyrptocurrencies and how to invest in each.</p>

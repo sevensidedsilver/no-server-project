@@ -218,6 +218,16 @@ canvas.chart {
   width: 300px;
   display: inline-block;
   text-align: center;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.oneLink:hover {
+  .fa-4x {
+    font-size: 5em;
+    transition: .3s;
+}
+
 }
 
 .fa {
@@ -230,8 +240,34 @@ canvas.chart {
 }
 
 .insightRow {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 6%;
+
+}
+
+.insightRow h1 {
+    margin-top: 0%;
+    line-height: 2em;
+    font-size: 3em;
+    text-align: center;
+
+}
+
+.insightHeader.ng-scope {
+    text-align: center;
+    margin-top: 6em;
+}
+
+.insightChart.ng-scope {
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+#priceHistory {
+      width: 50%;
 }
 
 .coinDiv {
@@ -239,7 +275,20 @@ canvas.chart {
   padding-top: 60px;
 }
 
+.coinDiv h1 {
+  text-align: center;
+}
 
+.coinRow {
+  display: flex;
+  align-items: center;
+  margin-top: 9%;
+}
+
+.coinRowText {
+    padding: 7%;
+    text-align: center;
+}
 
 .infoDiv {
 
