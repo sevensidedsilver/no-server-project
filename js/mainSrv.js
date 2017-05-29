@@ -3,7 +3,7 @@ angular.module('app').service('mainSrv', function($http){
     this.getCurrentPrice = function (){
       return $http({
       method: 'GET',
-      url: 'https://api.coindesk.com/v1/bpi/currentprice/CNY.json'
+      url: 'http://api.coindesk.com/v1/bpi/currentprice/CNY.json'
         }).then(function (response) {
             //console.log(response)
             return response
@@ -16,7 +16,7 @@ angular.module('app').service('mainSrv', function($http){
     this.getPriceYesterday = function (){
       return $http({
       method: 'GET',
-      url: 'https://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday'
+      url: 'http://api.coindesk.com/v1/bpi/historical/close.json?for=yesterday'
         }).then(function (response) {
 
             let obj = response.data.bpi
@@ -33,7 +33,7 @@ angular.module('app').service('mainSrv', function($http){
   this.getMonthlyBitcoinData = function (){
     return $http({
     method: 'GET',
-    url: 'https://api.coindesk.com/v1/bpi/historical/close.json'
+    url: 'http://api.coindesk.com/v1/bpi/historical/close.json'
       }).then(function (response) {
           //console.log(response.data.bpi)
           return response

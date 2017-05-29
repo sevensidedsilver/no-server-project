@@ -3,7 +3,7 @@ angular.module('app', ['ui.router'])
         $stateProvider
             .state('home',{
                 url:'/',
-                templateUrl: "no-server-project/templates/home.html"
+                templateUrl: "/templates/home.html"
             })
 
             .state('litehome',{
